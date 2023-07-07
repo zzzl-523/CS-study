@@ -4,21 +4,22 @@ wordA, wordB = [input() for _ in range(2)]
 
 cnt = 0
 total = 0
-wordA_len = len(wordA)
-wordB_len = len(wordB)
 
 # 검사할 때 중복은 제거해야 한다
+tmp_a = wordA
+tmp_b = wordB
+
 for alpha in wordA:
-    if alpha in wordB:
+    if alpha in tmp_b:
         cnt += 1
-        wordB = wordB.replace(alpha, '')
-total = wordA_len - cnt
+        tmp_b = tmp_b.replace(alpha, '', 1)
+totalA = len(wordA) - cnt
 
 cnt = 0
 for alpha in wordB:
-    if alpha in wordA:
+    if alpha in tmp_a:
         cnt += 1
-        wordA = wordA.replace(alpha, '')
-total += wordB_len - cnt
+        tmp_a = tmp_a.replace(alpha, '', 1)
+totalB = len(wordB) - cnt
 
-print(total)
+print(totalA + totalB)
