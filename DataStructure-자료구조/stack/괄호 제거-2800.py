@@ -28,7 +28,8 @@ for i in range(len(list_)):
         tmp_in_ = ''.join( s for s in tmp_in_)
         tmp_in_ = tmp_in_.replace('_', '')
         res.append(tmp_in_)
-    
+
+# 중복 제거
 prev_result = ''
 for result in sorted(res):
     if prev_result != result:
